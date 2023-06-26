@@ -24,7 +24,8 @@
     "@nestjs/core": "10.0.3",
     "@nestjs/platform-express": "10.0.3",
     "reflect-metadata": "0.1.13",
-    "rxjs": "7.8.1"
+    "rxjs": "7.8.1",
+    "@/smart-contracts":"*"
   },
   "devDependencies": {
     "@nestjs/cli": "10.0.5",
