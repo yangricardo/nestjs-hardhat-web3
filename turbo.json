@@ -12,6 +12,12 @@
       "dependsOn": ["build"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
+    "test-network": {
+      "dependsOn": ["test-network"]
+    },
+    "lock-contract-localhost-deploy": {
+      "dependsOn": ["lock-contract-localhost-deploy"]
+    },
     "lint": {},
     "dev": {
       "cache": false,

@@ -14,6 +14,8 @@
     "dev": "turbo dev",
     "start": "turbo start",
     "build": "turbo build",
-    "test": "turbo test"
+    "test": "turbo test",
+    "test-network": "turbo test-network",
+    "lock-contract-localhost-deploy": "turbo lock-contract-localhost-deploy"
   }
 }
