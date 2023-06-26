@@ -1,9 +1,11 @@
 {
   "name": "smart-contracts",
   "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "hardhat:compile": "hardhat compile",
-    "build": "hardhat compile && tsc -p .",
+    "build": "hardhat compile && tsup typechain-types/index.ts --format esm,cjs --dts",
     "hardhat:test": "hardhat test",
     "test": "hardhat compile",
     "test:esg-token": "hardhat test test/EsgToken.test.ts",
@@ -43,6 +45,7 @@
     "ts-node-dev": "2.0.0",
     "tsconfig": "*",
     "tslib": "2.5.2",
+    "tsup":"7.1.0",
     "typechain": "8.1.1",
     "typescript": "5.0.4"
   },
