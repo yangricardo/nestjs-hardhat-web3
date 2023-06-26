@@ -14,17 +14,29 @@ export class LockSmartContractController {
 
   @Get('/owner')
   async getLockContractOwner(): Promise< string> {
-    return this.lockSmartContractService.getLockContractOwner();
+    try {
+      return await this.lockSmartContractService.getLockContractOwner();      
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
   }
   
   @Get('/address')
   async getLockContractAddress(): Promise< string> {
-    return this.lockSmartContractService.getLockContractAddress()
+    try {
+      return await this.lockSmartContractService.getLockContractAddress()      
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
   }
 
   @Get('/unlock-time')
   async getLockContractUnlockTime(): Promise< ethers.BigNumber> {
-    return this.lockSmartContractService.getLockContractUnlockTime();
+    try {
+      return await this.lockSmartContractService.getLockContractUnlockTime();      
+    } catch (error) {
+      throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
   }
 
   @Post('/withdraw')
