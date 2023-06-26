@@ -1,7 +1,8 @@
-import { Controller, Get,Post } from '@nestjs/common';
+import { Controller, Get,HttpException,HttpStatus,Post } from '@nestjs/common';
 import { LockSmartContractService } from './lock-smart-contract.service';
-import { ContractTransaction , BigNumber} from 'ethers';
+import * as ethers from 'ethers/lib';
 import { ApiTags } from '@nestjs/swagger';
+import { EthersError } from 'src/shared/ethers/types/EthersError';
 
 @Controller('lock-smart-contract')
 @ApiTags('lock-smart-contract')
@@ -22,13 +23,19 @@ export class LockSmartContractController {
   }
 
   @Get('/unlock-time')
-  async getLockContractUnlockTime(): Promise< BigNumber> {
+  async getLockContractUnlockTime(): Promise< ethers.BigNumber> {
     return this.lockSmartContractService.getLockContractUnlockTime();
   }
 
   @Post('/withdraw')
-  async submitWithdrawTransaction(): Promise<ContractTransaction> {
-    return this.lockSmartContractService.submitWithdrawTransaction();
+  async submitWithdrawTransaction(): Promise<ethers.ContractTransaction> {
+    try {
+      return await this.lockSmartContractService.submitWithdrawTransaction();      
+    } catch (error) { 
+      const ethersErros = error as unknown as EthersError;      
+      console.error(ethersErros.reason);
+      throw new HttpException(error, HttpStatus.BAD_REQUEST);
+    }
   }
 
 }
