@@ -10,7 +10,6 @@ import {
   BigNumberish,
 } from "ethers";
 import type { Provider, TransactionRequest } from "@ethersproject/providers";
-import type { PromiseOrValue } from "../common";
 import type { Lock, LockInterface } from "../Lock";
 
 const _abi = [
@@ -100,14 +99,14 @@ export class Lock__factory extends ContractFactory {
   }
 
   override deploy(
-    _unlockTime: PromiseOrValue<BigNumberish>,
-    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+    _unlockTime: BigNumberish,
+    overrides?: PayableOverrides & { from?: string }
   ): Promise<Lock> {
     return super.deploy(_unlockTime, overrides || {}) as Promise<Lock>;
   }
   override getDeployTransaction(
-    _unlockTime: PromiseOrValue<BigNumberish>,
-    overrides?: PayableOverrides & { from?: PromiseOrValue<string> }
+    _unlockTime: BigNumberish,
+    overrides?: PayableOverrides & { from?: string }
   ): TransactionRequest {
     return super.getDeployTransaction(_unlockTime, overrides || {});
   }

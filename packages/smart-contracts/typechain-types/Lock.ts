@@ -23,7 +23,6 @@ import type {
   TypedEvent,
   TypedListener,
   OnEvent,
-  PromiseOrValue,
 } from "./common";
 
 export interface LockInterface extends utils.Interface {
@@ -98,7 +97,7 @@ export interface Lock extends BaseContract {
     unlockTime(overrides?: CallOverrides): Promise<[BigNumber]>;
 
     withdraw(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: string }
     ): Promise<ContractTransaction>;
   };
 
@@ -107,7 +106,7 @@ export interface Lock extends BaseContract {
   unlockTime(overrides?: CallOverrides): Promise<BigNumber>;
 
   withdraw(
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
+    overrides?: Overrides & { from?: string }
   ): Promise<ContractTransaction>;
 
   callStatic: {
@@ -131,9 +130,7 @@ export interface Lock extends BaseContract {
 
     unlockTime(overrides?: CallOverrides): Promise<BigNumber>;
 
-    withdraw(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
+    withdraw(overrides?: Overrides & { from?: string }): Promise<BigNumber>;
   };
 
   populateTransaction: {
@@ -142,7 +139,7 @@ export interface Lock extends BaseContract {
     unlockTime(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     withdraw(
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
+      overrides?: Overrides & { from?: string }
     ): Promise<PopulatedTransaction>;
   };
 }
