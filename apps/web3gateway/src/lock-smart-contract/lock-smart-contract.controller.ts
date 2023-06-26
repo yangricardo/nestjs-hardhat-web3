@@ -1,8 +1,10 @@
 import { Controller, Get,Post } from '@nestjs/common';
 import { LockSmartContractService } from './lock-smart-contract.service';
 import { ContractTransaction , BigNumber} from 'ethers';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('lock-smart-contract')
+@ApiTags('lock-smart-contract')
 export class LockSmartContractController {
 
   constructor(
