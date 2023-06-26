@@ -1,0 +1,53 @@
+openapi: 3.0.0
+paths:
+  /hello-world:
+    get:
+      operationId: AppController_getHello
+      parameters: []
+      responses:
+        '200':
+          description: ''
+  /lock-smart-contract/owner:
+    get:
+      operationId: LockSmartContractController_getLockContractOwner
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: &ref_0
+        - lock-smart-contract
+  /lock-smart-contract/address:
+    get:
+      operationId: LockSmartContractController_getLockContractAddress
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /lock-smart-contract/unlock-time:
+    get:
+      operationId: LockSmartContractController_getLockContractUnlockTime
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags: *ref_0
+  /lock-smart-contract/withdraw:
+    post:
+      operationId: LockSmartContractController_submitWithdrawTransaction
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags: *ref_0
+info:
+  title: WEB 3 EVM Gateway
+  description: WEB 3 EVM Gateway Base Project Template
+  version: '1.0'
+  contact: {}
+tags:
+  - name: lock-smart-contract
+    description: ''
+servers: []
+components:
+  schemas: {}

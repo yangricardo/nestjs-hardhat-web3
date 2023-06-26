@@ -11,7 +11,11 @@ async function bootstrap() {
     .addTag('lock-smart-contract')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/', app, document);
+  SwaggerModule.setup('/', app, document,{
+    yamlDocumentUrl: '/openapi.yaml',
+    jsonDocumentUrl: '/openapi.json',
+    explorer: true,
+  });
   await app.listen(3000);
 }
 bootstrap();
