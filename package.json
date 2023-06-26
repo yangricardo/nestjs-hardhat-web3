@@ -9,5 +9,10 @@
   "workspaces": ["packages/*", "apps/*"],
   "dependencies": {
     "turbo": "1.10.6"
+  },
+  "scripts": {
+    "start": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test"
   }
 }
