@@ -16,4 +16,20 @@ export class LockSmartContractService {
     this.lockContractFactory = new Lock__factory(this.signer);
     this.lockContract = this.lockContractFactory.attach(process.env.LOCK_CONTRACT_ADDRESS);
   }
+
+  async getLockContractAddress(): Promise<string> { 
+    return this.lockContract.address;
+  }
+
+  async getLockContractOwner(): Promise<string> {
+    return this.lockContract.owner();
+  }
+
+  async submitWithdrawTransaction(): Promise<ethers.ethers.ContractTransaction> {    
+    return this.lockContract.withdraw();
+  }
+
+  async getLockContractUnlockTime(): Promise<ethers.ethers.BigNumber>{
+    return this.lockContract.unlockTime();
+  }
 }
